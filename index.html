@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propedéutico de matemáticas</title>
+    <!-- Estas instrucciones se utilizan para renderizar las ecuaciones LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Biblioteca de la API de YouTube -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+
+    <h1>Fórmulas en LaTeX</h1>
+    <!-- Este es el contenedor donde se mostrarán las fórmulas -->
+    <p>Estas son las ecuaciones:</p>
+    <div id="formula-container"></div>
+
+    <!-- Aquí se añade la figura con un tamaño ajustado y un caption -->
+    <p>Estas son las imagenes:</p>
+    <figure style="display: block; margin-top: 20px; width: 20%;">
+        <img src="Bocina.svg" alt="Descripción de la imagen" style="width: 100%;">
+        <figcaption>Figura 1: Descripción de la figura.</figcaption>
+    </figure>
+
+    <!-- Aquí se añade el video de YouTube con su miniatura y vista previa -->
+    <p>Estos son los videos:</p>
+
+    <div id="player"></div>
+    <script>
+        // Función para inicializar el reproductor de video de YouTube
+        function onYouTubeIframeAPIReady() {
+            // Crear un nuevo reproductor de video
+            var player = new YT.Player('player', {
+                height: '360',
+                width: '640',
+                videoId: 'KqzLGrDpMk4', // ID del video de YouTube
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        // Función que se ejecuta cuando el reproductor está listo
+        function onPlayerReady(event) {
+            // Mostrar el reproductor de video
+            event.target.playVideo();
+        }
+    </script>
+
+    <!-- Se incluye el script JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
